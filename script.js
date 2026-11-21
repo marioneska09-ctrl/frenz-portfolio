@@ -125,7 +125,7 @@ function initCanvasBackground() {
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(129, 140, 248, ${p.alpha})`;
+      ctx.fillStyle = `rgba(182, 83, 45, ${p.alpha})`;
       ctx.fill();
 
       for (let j = i + 1; j < particles.length; j++) {
@@ -135,7 +135,7 @@ function initCanvasBackground() {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(99, 102, 241, ${0.12 * (1 - dist / 105)})`;
+          ctx.strokeStyle = `rgba(135, 59, 32, ${0.12 * (1 - dist / 105)})`;
           ctx.lineWidth = 0.55;
           ctx.stroke();
         }
@@ -377,9 +377,8 @@ const themeToggleBtn = document.getElementById("theme-toggle");
 
 function initTheme() {
   const savedTheme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   
-  if (savedTheme === "light" || (!savedTheme && !prefersDark)) {
+  if (savedTheme === "light") {
     document.documentElement.classList.remove("dark");
   } else {
     document.documentElement.classList.add("dark");
